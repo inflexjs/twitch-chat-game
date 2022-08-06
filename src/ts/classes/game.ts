@@ -22,8 +22,9 @@ export class Game implements GameInterface{
         new Loop(this.update.bind(this), this.draw.bind(this), this.clear.bind(this), this.context)
     }
 
+    // @ts-ignore
     update(correction: number) {
-        console.log({'delay': correction})
+        // console.log({'delay': correction})
     }
 
     draw(ctx: CanvasRenderingContext2D) {

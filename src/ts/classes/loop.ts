@@ -7,6 +7,7 @@ export class Loop {
 
     deltaTime: number
     lastUpdate: number
+    milliseconds: number
 
     constructor(update: (correction: number) => void, draw: (ctx: CanvasRenderingContext2D) => void, clear: (ctx: CanvasRenderingContext2D) => void, context: CanvasRenderingContext2D) {
         this.update = update
@@ -17,6 +18,7 @@ export class Loop {
 
         this.deltaTime = 0
         this.lastUpdate = 0
+        this.milliseconds = 1000 // one second
 
         this.animate = this.animate.bind(this)
         this.animate()
@@ -28,7 +30,7 @@ export class Loop {
         this.deltaTime = currentTime - this.lastUpdate
 
         this.clear(this.context)
-        this.update(this.deltaTime / 1000)
+        this.update(this.deltaTime / this.milliseconds)
         this.draw(this.context)
 
         this.lastUpdate = currentTime

@@ -8,8 +8,15 @@ class App {
 
     constructor(container: HTMLBodyElement | null) {
         this.layer = new Layer(container)
-        this.game = new Game(this.layer.canvas.width, this.layer.canvas.height, this.layer.context)
-        console.log('Game started', this.game)
+        this.game = new Game
+        (
+            this.layer.canvas.width,
+            this.layer.canvas.height,
+            this.layer.context
+        )
+
+        console.log('Game started')
+        console.log({ game: this.game })
     }
 }
 
